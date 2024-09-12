@@ -1,0 +1,88 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.wrapper {
+    height: 100vh;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+.container {
+    height: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    /*container ko center lane ke liye */
+    padding: 20px;
+}
+
+.container h1 {
+    margin: 20px 0;
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 3em;
+}
+
+.gallery {
+    display: flex;
+    /*sare element default horizontall arrange hojayege*/
+    flex-wrap: wrap;
+    /*agar element 1 row me fix nhi ho skte woh niche aa jayege*/
+    justify-content: space-between;
+}
+
+.card {
+    width: 32%; /*32 * 3 = 96px and rest 4 px for spacing means there are 3 pics in 1 row*/
+    position: relative;
+     /*ancestor ko relative kiya text ko overllap ke liye*/
+    margin-bottom: 20px;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.card img {
+    width: 100%;
+    height: 100%;
+    /*card rounded ho gaya */
+    filter: grayscale(100%);
+    box-shadow: 0 0 20px #333;
+}
+
+.card:hover {
+    transform: scale(1.03);
+    /*card pr hover pr bada ho jye*/
+    filter: drop-shadow(0 0 20px #333);
+    /*shodow show kre after hovering*/
+    transition: 0.3s;
+}
+
+.card:hover img {
+    filter: grayscale(0%);
+    /*original color */
+}
+
+.card figcaption {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    padding: 25px;
+    width: 100%;
+    height: 20%;
+    font-size: 15px;
+    font-weight: 500;
+    color: white;
+    border-radius: 0 0 10px 10px;
+    background: linear-gradient(0deg, rgba(0, 0, 0, 0.5) 0%, rgba(255, 255, 255, 0) 100%);
+    transition: 0.3s;
+    opacity: 0;
+    /*text ko invisible krne ke liye*/
+}
+
+.card:hover figcaption {
+    opacity: 1;
+    /*after hovering text ko visible krne ke liye*/
+    transform: scale(1.03);
+    /*text size inc*/
+}
